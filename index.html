@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English with Mixlass - Interactive Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .header {
+            background-color: #f97316;
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem 1rem 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .task-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0 0 1rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .reading-text {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+        }
+        .question {
+            margin-top: 1.5rem;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+        .input-group input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.5rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            border-color: #f97316;
+        }
+        .feedback {
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        .correct {
+            color: #10b981;
+        }
+        .incorrect {
+            color: #ef4444;
+        }
+        .explanation {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+        }
+        .question-title {
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+<div class="container mx-auto rounded-xl overflow-hidden shadow-lg">
+    <div class="header">
+        <h1 class="text-4xl font-bold">English with Mixlass</h1>
+        <p class="mt-2">LEARN.SHARE.CONNECT</p>
+    </div>
+    
+    <div class="task-section">
+        
+        <!-- Reading Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">READING</h2>
+            <div class="reading-text leading-relaxed">
+                <div class="mb-4">
+                    <p class="font-bold text-lg text-blue-800">Best friends but different!</p>
+                    <div class="flex flex-col md:flex-row items-start md:space-x-6">
+                        <div class="w-full md:w-1/2">
+                            <h3 class="font-bold">Rowan</h3>
+                            <p class="text-sm">My best friend is Annie. She's great. We have very different lives though. She's a lawyer. She gets up at 7 a.m. every day. She has breakfast and then goes to work. She often works late (sometimes until 9 p.m.!), but not on Thursdays. She has a Spanish class on Thursday evenings. She studies Spanish because her boyfriend is from Argentina. I don't study. I'm a shop assistant and I work in a supermarket in the centre of town. I don't start work until 12, so I usually get up late – around 10.30 a.m. I go to work by bus and work hard all day. I finish work at 8 p.m., then come home and cook dinner. Annie and I have very different lives, but we still make time to see each other.</p>
+                        </div>
+                        <div class="w-full md:w-1/2 mt-4 md:mt-0">
+                            <h3 class="font-bold">Annie</h3>
+                            <p class="text-sm">I know my good friend Rowan from school. We live in the same town and we always see each other at weekends. We have different interests, so it's usually interesting to spend time together! Rowan plays a lot of sports, like football and tennis, but I like going for walks or to the cinema. So, how do we decide what to do in our free time? It's easy. One weekend I choose what to do, and the next weekend Rowan chooses. This weekend I want to watch a film, and next weekend Rowan wants to cook dinner. He loves cooking, but I hate it, so he cooks and I eat. It's perfect. I think we're good friends because we do things together that we don't usually do alone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="question" id="task4">
+            <div class="flex items-start mb-4">
+                <p class="font-bold text-2xl mr-2">4</p>
+                <div class="flex-grow">
+                    <p class="question-title">Choose the correct word to complete the sentences.</p>
+                    <p class="mt-2 text-sm">Rowan is a shop assistant. He <input type="text" id="q4-input" class="w-24 border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="...."> in a supermarket. He starts at 12 p.m. and he finishes at 8 p.m.</p>
+                    <div class="flex mt-2 text-sm space-x-4">
+                        <label>
+                            <input type="radio" name="q4-choice" value="lives" class="mr-1">
+                            a lives
+                        </label>
+                        <label>
+                            <input type="radio" name="q4-choice" value="works" class="mr-1">
+                            b works
+                        </label>
+                        <label>
+                            <input type="radio" name="q4-choice" value="meets" class="mr-1">
+                            c meets
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="q4-feedback" class="mt-2 ml-8 text-sm"></div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="question" id="task5">
+            <div class="flex items-start mb-4 mt-8">
+                <p class="font-bold text-2xl mr-2">5A</p>
+                <div class="flex-grow">
+                    <p class="question-title">Read the article. Are the statements True (T) or False (F)?</p>
+                    <ul class="list-none space-y-2 mt-4 text-sm">
+                        <li class="input-group">
+                            <span class="w-6">1.</span>
+                            <span>Annie is Rowan's wife.</span>
+                            <input type="text" id="q5-1-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-1-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">2.</span>
+                            <span>Annie's boyfriend is Spanish.</span>
+                            <input type="text" id="q5-2-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-2-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">3.</span>
+                            <span>Rowan works for eight hours every day.</span>
+                            <input type="text" id="q5-3-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-3-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">4.</span>
+                            <span>Annie always sees Rowan at the weekend.</span>
+                            <input type="text" id="q5-4-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-4-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">5.</span>
+                            <span>Annie and Rowan go to the same school.</span>
+                            <input type="text" id="q5-5-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-5-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">6.</span>
+                            <span>They like doing the same things.</span>
+                            <input type="text" id="q5-6-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-6-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">7.</span>
+                            <span>Rowan likes sport.</span>
+                            <input type="text" id="q5-7-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-7-feedback" class="feedback"></span>
+                        </li>
+                        <li class="input-group">
+                            <span class="w-6">8.</span>
+                            <span>Annie likes cooking.</span>
+                            <input type="text" id="q5-8-input" class="w-16 ml-auto border-b-2 border-orange-500 outline-none text-center rounded-none" placeholder="T/F">
+                            <span id="q5-8-feedback" class="feedback"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-8 space-x-4">
+            <button onclick="checkAnswers()" class="px-6 py-2 bg-orange-500 text-white font-bold rounded-full shadow-lg hover:bg-orange-600 transition-colors">Проверить</button>
+            <button onclick="resetTask()" class="px-6 py-2 bg-gray-300 text-gray-800 font-bold rounded-full shadow-lg hover:bg-gray-400 transition-colors">Сбросить</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function normalizeText(text) {
+        return text.toLowerCase().replace(/[\s.,?!'’"]+/g, '').replace(/^-+/, '');
+    }
+
+    const answers = {
+        'q4-input': 'works',
+        'q4-choice': 'works',
+        'q5-1-input': 'f',
+        'q5-2-input': 'f',
+        'q5-3-input': 't',
+        'q5-4-input': 't',
+        'q5-5-input': 'f',
+        'q5-6-input': 'f',
+        'q5-7-input': 't',
+        'q5-8-input': 'f'
+    };
+
+    const explanations = {
+        'q4-input': "Правильный ответ 'works'. Текст говорит, что Роуэн работает в супермаркете.",
+        'q5-1-input': "Неверно. Они лучшие друзья, а не муж и жена.",
+        'q5-2-input': "Неверно. Её парень из Аргентины, поэтому она учит испанский.",
+        'q5-3-input': "Верно. Роуэн работает с 12 до 8 вечера, что составляет 8 часов.",
+        'q5-4-input': "Верно. Энни говорит, что они всегда видятся по выходным.",
+        'q5-5-input': "Неверно. Энни говорит, что знает Роуэна со школы, но это не значит, что они до сих пор учатся в одной школе.",
+        'q5-6-input': "Неверно. В тексте сказано, что у них разные интересы.",
+        'q5-7-input': "Верно. Роуэн играет в футбол и теннис, а это спорт.",
+        'q5-8-input': "Неверно. Энни говорит, что ненавидит готовить, а Роуэн любит."
+    };
+
+    function checkAnswers() {
+        // Task 4
+        const q4Input = document.getElementById('q4-input');
+        const q4Choice = document.querySelector('input[name="q4-choice"]:checked');
+        const q4Feedback = document.getElementById('q4-feedback');
+
+        let isQ4Correct = false;
+        if (q4Input.value) {
+            if (normalizeText(q4Input.value) === normalizeText(answers['q4-input'])) {
+                q4Input.classList.add('border-green-500');
+                q4Feedback.classList.add('correct');
+                q4Feedback.innerHTML = '&#10004;';
+                isQ4Correct = true;
+            } else {
+                q4Input.classList.add('border-red-500');
+                q4Feedback.classList.add('incorrect');
+                q4Feedback.innerHTML = '&#10008; ' + explanations['q4-input'];
+            }
+        } else if (q4Choice) {
+            if (q4Choice.value === answers['q4-choice']) {
+                q4Feedback.classList.add('correct');
+                q4Feedback.innerHTML = '&#10004;';
+                isQ4Correct = true;
+            } else {
+                q4Feedback.classList.add('incorrect');
+                q4Feedback.innerHTML = '&#10008; ' + explanations['q4-input'];
+            }
+        } else {
+            q4Feedback.classList.add('incorrect');
+            q4Feedback.innerHTML = '&#10008; ' + explanations['q4-input'];
+        }
+
+        // Task 5
+        for (let i = 1; i <= 8; i++) {
+            const inputId = `q5-${i}-input`;
+            const feedbackId = `q5-${i}-feedback`;
+            const input = document.getElementById(inputId);
+            const feedback = document.getElementById(feedbackId);
+            const userAnswer = normalizeText(input.value);
+            const correctAnswer = normalizeText(answers[inputId]);
+
+            if (userAnswer === correctAnswer) {
+                input.classList.add('border-green-500');
+                feedback.classList.add('correct');
+                feedback.innerHTML = '&#10004;';
+            } else {
+                input.classList.add('border-red-500');
+                feedback.classList.add('incorrect');
+                feedback.innerHTML = '&#10008; ' + explanations[inputId];
+            }
+        }
+    }
+
+    function resetTask() {
+        // Task 4
+        const q4Input = document.getElementById('q4-input');
+        const q4Choices = document.querySelectorAll('input[name="q4-choice"]');
+        const q4Feedback = document.getElementById('q4-feedback');
+        q4Input.value = '';
+        q4Input.classList.remove('border-green-500', 'border-red-500');
+        q4Feedback.innerHTML = '';
+        q4Choices.forEach(radio => radio.checked = false);
+
+        // Task 5
+        for (let i = 1; i <= 8; i++) {
+            const inputId = `q5-${i}-input`;
+            const feedbackId = `q5-${i}-feedback`;
+            const input = document.getElementById(inputId);
+            const feedback = document.getElementById(feedbackId);
+            input.value = '';
+            input.classList.remove('border-green-500', 'border-red-500');
+            feedback.innerHTML = '';
+        }
+    }
+</script>
+
+</body>
+</html>
